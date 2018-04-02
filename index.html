@@ -1,0 +1,172 @@
+<!--
+STATUS: Working as per requirement.
+-->
+
+
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>javascript, jquery, and checkbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+  <div id= "addUpForVol"> <!-- one for volunteer post -->
+      	  <br />
+
+
+        <form id = "volunteerSkills" > <!-- added this as part of volunteer skills --->
+
+          <label>Volunteers needed in areas of expertise*: </label>
+          <br />
+
+          <input type="checkbox" name="Healthcare (general)"  value="Healthcare (general)" id= "vs0"/>Healthcare (general).  No. of volunteers needed:
+          <input type = "number" value = "0" name ="Healthcare (general)" id= "vn0"/> <br/>
+
+          <input type="checkbox" name="Women's healthcare"  value="Women's healthcare" id= "vs1"/>Women's health.  No. of volunteers needed:
+          <input type = "number" value = "0" name = "Women's healthcare" id= "vn1"/> <br/>
+
+          <input type="checkbox" name="Home resettlement/installment at camp"  value="Home resettlement/installment at camp" id= "vs2"/>Home settlement at camp.  No. of volunteers needed:
+          <input type = "number" value = "0" name = "Home resettlement/installment at camp" id="vn2"/> <br/>
+
+          <input type="checkbox" name="Vocational training"  value="Vocational training" id= "vs3"/>Vocational training. No. of volunteers needed:
+          <input type = "number" value = "0" name = "Vocational training" id= "vn3"> <br/>
+
+          <input type="checkbox" name="Post trauma conselling"  value="Post trauma conselling" id= "vs4"/>Post trauma conselling. No. of volunteers needed:
+          <input type = "number" value = "0" name ="Post trauma conselling" id= "vn4"> <br/>
+
+          <input type= "checkbox" name="Cooking" value= "Cooking" id= "vs5"/> Cooking. No. of volunteers needed:
+          <input type = "number" value = "0" id = "Cooking" id= "vn5"> <br/>
+
+          <input type= "checkbox" name="Collection and distribution" value= "Collection and distribution" id="vs6"/> Collection and distribution.  No. of volunteers needed:
+          <input type = "number" value = "0" name="Collection and distribution" id= "vn6"> <br/>
+
+          <vr/>
+          <label id="warn" class = "bg-danger"><strong>WARNING:</strong> The number of volunteers needed for selected skill must be at least 1.</label>
+          <br/>
+        </form>
+
+        <!-- need to know how many volunteers needed and in which areas of expertise -->
+<!--      	<label>Tentative number of volunteers needed*:</label><input type = "number" value = "20"> -->
+        <!-- date by which volunteer is needed by -->
+
+
+        <br>
+        <label>Application Deadline: </label>
+        <input type = "date" id = "tarikh"> <!-- get the javascript code you wrote -->
+
+
+      </div>
+
+
+<script>// SH Miss urges to keep this at seperate pages
+
+var checked, zero_count, zero;
+
+//alert(typeof zero_count); // see what zero_count actually is
+
+$("#volunteerSkills").change(function(){  // 4/2/18 12:04 -> This part works
+    zero = false;
+    alert("checkbox is checked");
+
+    if( $("#vs0").prop("checked") == true){
+
+      if( Number( $("#vn0").val() )  > 0){ // check if vn0  >
+          //alert($("#vn0").val()); // all ok
+          $("#warn").hide();
+
+      }else{  // if the number of volunteer is 0
+        $("#warn").show();
+        zero = true; //
+      }
+
+    }// end of if statement for #vs0
+
+    if( $("#vs1").prop("checked") == true){
+
+      if( Number( $("#vn1").val() )  > 0){ // check if vn0  >
+          $("#warn").hide();
+      }else{  // if the number of volunteer is 0
+        $("#warn").show();
+        zero = true; //
+      }
+
+    }// end of if statement for #vs0
+
+    if( $("#vs2").prop("checked") == true){
+
+      if( Number( $("#vn2").val() )  > 0){ // check if vn0  >
+          $("#warn").hide();
+      }else{  // if the number of volunteer is 0
+        $("#warn").show();
+        zero = true; //
+      }
+
+    }
+
+    if( $("#vs3").prop("checked") == true){
+
+      if( Number( $("#vn3").val() )  > 0){ // check if vn0  >
+          $("#warn").hide();
+      }else{  // if the number of volunteer is 0
+        $("#warn").show();
+        zero = true; //
+      }
+
+    }
+
+    if( $("#vs4").prop("checked") == true){
+
+      if( Number( $("#vn4").val() )  > 0){ // check if vn0  >
+          $("#warn").hide();
+      }else{  // if the number of volunteer is 0
+        $("#warn").show();
+        zero = true; //
+      }
+
+    }
+
+    if( $("#vs5").prop("checked") == true){
+
+      if( Number( $("#vn5").val() )  > 0){ // check if vn0  >
+          $("#warn").hide();
+      }else{  // if the number of volunteer is 0
+        $("#warn").show();
+        zero = true; //
+      }
+
+    }
+
+    if( $("#vs6").prop("checked") == true){
+
+      if( Number( $("#vn6").val() )  > 0){ // check if vn0  >
+          $("#warn").hide();
+      }else{  // if the number of volunteer is 0
+        $("#warn").show();
+        zero = true; //
+      }
+
+    }
+
+    // here you will know if all checked checkboxes correspond to respective volunteer number.
+    if(zero == true){ // if there is at least on vn = 0 at for vs = checked,
+      $("#warn").show();
+    }
+});
+
+
+</script>
+</body>
+</html>
